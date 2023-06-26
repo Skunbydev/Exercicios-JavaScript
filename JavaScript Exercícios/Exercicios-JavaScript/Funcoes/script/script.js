@@ -45,5 +45,20 @@ function verificarPar (n) {
 // quando o evento 'scroll' ocorrer.
 
 // Corrija o erro abaixo
+var paisesVisitados = 9;
 
-  
+function precisoVisitar() {
+  var totalPaises = 193;
+  return `Ainda faltam ${totalPaises - paisesVisitados} países para visitar`;
+}
+
+function jaVisitei() {
+  var totalPaises = 193;
+  return `Já visitei ${paisesVisitados} do total de ${totalPaises} países`;
+}
+
+console.log(precisoVisitar());
+console.log (jaVisitei());
+
+
+
