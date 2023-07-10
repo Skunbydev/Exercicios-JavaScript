@@ -35,5 +35,5 @@ const handleKeyboard = (e => {
     if (e.key === 't') document.body.classList.toggle('text-big');
 });
 
-
 window.addEventListener('keydown', handleKeyboard);
+alert ('mamae, programar é muito dificil');
