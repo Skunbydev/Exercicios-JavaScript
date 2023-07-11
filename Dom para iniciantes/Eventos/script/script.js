@@ -36,4 +36,4 @@ const handleKeyboard = (e => {
 });
 
 window.addEventListener('keydown', handleKeyboard);
-alert ('mamae, programar é muito dificil');
+alert('mamae, programar é muito dificil');
