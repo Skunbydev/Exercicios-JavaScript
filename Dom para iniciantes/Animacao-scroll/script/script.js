@@ -68,7 +68,6 @@ initScrollSuave();
 
 function InitAnimacaoScroll() {
 
-
     const sections = document.querySelectorAll('.js-scroll');
     if (sections.length) {
 
