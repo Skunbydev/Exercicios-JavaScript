@@ -1,63 +1,53 @@
-// Transforme o objeto abaixo em uma Constructor Function
-function Pessoa(nomePessoa, idadePessoa) {
-    this.nome = nomePessoa;
-        this.idade = idadePessoa;
-    this.andar = function() {
-        console.log(nomePessoa + ' andou');
-    }
+// Crie uma função construtora de Pessoas
+// Deve conter nome, sobrenome e idade
+// Crie um método no protótipo que retorne
+// o nome completo da pessoa
+
+
+function initPessoas() {
+
+
+
+  function Pessoas(nome, sobrenome, idade) {
+    this.nome = nome;
+    this.sobrenome = sobrenome;
+    this.idade = idade;
+  }
+
+  Pessoas.prototype.dadosCallback = function () {
+    return `${this.nome} ${this.sobrenome}${','} ${this.idade} ${'anos'}`
+  }
+
+  const luiz = new Pessoas('Luiz Felipe', 'Santos de Lima Alves', 20);
+  console.log(luiz.dadosCallback());
 }
+initPessoas();
+
+// Liste os métodos acessados por 
+// dados criados com NodeList,
+// HTMLCollection, Document
+
+console.log(Object.getOwnPropertyNames(NodeList.prototype));
+console.log(Object.getOwnPropertyNames(HTMLCollection));
+console.log(Object.getOwnPropertyNames(Document));
+
+// Liste os construtores dos dados abaixo
+
+
+const li = document.querySelector('li');
+
+li; //HTMLELLEMENT
+li.click; // function
+li.innerText; // string
+li.value; // number
+li.hidden; // bollean
+li.offsetLeft; // number
+li.click(); // undefined
 
 
 
-// Crie 3 pessoas, João - 20 anos,
-// Maria - 25 anos, Bruno - 15 anos
+// Qual o construtor do dado abaixo:
+// li.hidden.constructor.name;
 
-function Pessoas(nomeDaPessoa, idadeDaPessoa) {
-    this.nome = nomeDaPessoa;
-    this.idade = idadeDaPessoa;
-
-    this.dadosDaPessoa = function () {
-        return `${nomeDaPessoa} têm ${idadeDaPessoa} anos`;
-    };
-}
-
-
-const joao = new Pessoas ('Joao', 19);
-console.log (joao.dadosDaPessoa());
-
-const maria = new Pessoas ('Maria', 25);
-console.log (maria.dadosDaPessoa());
-
-const bruno = new Pessoas ('Bruno', 15);
-console.log (bruno.dadosDaPessoa());
-
-
-
-// Crie uma Constructor Function (Dom) para manipulação
-// de listas de elementos do dom. Deve conter as seguintes
-// propriedades e métodos:
-//
-// elements, retorna NodeList com os elementos selecionados
-// addClass(classe), adiciona a classe a todos os elementos
-// removeClass(classe), remove a classe a todos os elementos
-
-function Dom(seletor) {
-    const elementList = document.querySelectorAll(seletor);
-    this.elements = elementList;
-    this.addClass = function (classe) {
-        elementList.forEach (element => {
-            element.classList.add(classe);
-        });
-    this.removeClass = function (classe) {
-        elementList.forEach (element => {
-            element.classList.remove(classe)
-        });
-    }   
-    }
-}
-
-
-
-
-const listaItens = new Dom('li');
-listaItens.addClass('ativar');
+// li.hidden.constructor();
+// console.log(li.hidden.toString);
