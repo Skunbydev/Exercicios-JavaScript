@@ -47,7 +47,4 @@ li.click(); // undefined
 
 
 // Qual o construtor do dado abaixo:
-// li.hidden.constructor.name;
-
-// li.hidden.constructor();
-// console.log(li.hidden.toString);
+ li.hidden.constructor.name; //string  
