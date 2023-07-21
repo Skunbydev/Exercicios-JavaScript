@@ -23,42 +23,47 @@ const transacoes = [{
     },
 ];
 
-// let somaTaxa = 0;
-// let somaRecebimento = 0;
+let somaTaxa = 0;
+let somaRecebimento = 0;
 
-// transacoes.forEach(transacao => {
-//     const valorLimpo = +transacao.valor.replace('R$', '');
+transacoes.forEach (transacao => {
+    const numeroLimpo = +transacao.valor.replace('R$', '').trim();
 
-//     if (transacao.descricao.slice(0, 4) === 'Taxa')
-//         somaTaxa += valorLimpo;
+    if(transacao.descricao.slice(0,4) ==='Taxa')  
+    somaTaxa += numeroLimpo;
+    
+    
+    else if (transacao.descricao.slice(0, 11) === 'Recebimento')
+    somaRecebimento += numeroLimpo;
+    
+}); 
+const numerosFormatados = `O valor pago em taxas foi de: ${somaTaxa.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}, já o valor recebido foi de: ${somaRecebimento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
 
-//     else if (transacao.descricao.slice(0, 11) === 'Recebimento')
-//         somaRecebimento += valorLimpo;
+console.log(numerosFormatados);
 
 
-// });
-// const valoresFormatados = `Valor total de taxas é de: R$${somaTaxa.toFixed(2)}, valor total recebido é de: R$${somaRecebimento.toFixed(2)}`;
-// console.log(valoresFormatados);
 
 
-function initTransacao() {
-    let somaTaxa = 0;
-    let somaRecebimento = 0;
 
-    transacoes.forEach(transacao => {
-        const valorLimpo = Number(transacao.valor.replace('R$', '').trim());
 
-        if (transacao.descricao.startsWith('Taxa'))
-            somaTaxa += valorLimpo;
-        else if (transacao.descricao.startsWith('Recebimento'))
-            somaRecebimento += valorLimpo;
-    });
+// function initTransacao() {
+//     let somaTaxa = 0;
+//     let somaRecebimento = 0;
 
-    const valorFormatado = `as taxas são: R$${somaTaxa.toFixed(2)}, o valor recebido foi de: R$${somaRecebimento.toFixed(2, Infinity)}`;
-    console.log(valorFormatado)
-}
+//     transacoes.forEach(transacao => {
+//         const valorLimpo = Number(transacao.valor.replace('R$', '').trim());
 
-initTransacao()
+//         if (transacao.descricao.startsWith('Taxa'))
+//             somaTaxa += valorLimpo;
+//         else if (transacao.descricao.startsWith('Recebimento'))
+//             somaRecebimento += valorLimpo;
+//     });
+
+//     const valorFormatado = `as taxas são: R$${somaTaxa.toFixed(2)}, o valor recebido foi de: R$${somaRecebimento.toFixed(2, Infinity)}`;
+//     console.log(valorFormatado)
+// }
+
+
 
 // Retorne uma array com a lista abaixo
 const transportes = 'Carro;Avião;Trem;Ônibus;Bicicleta';
@@ -72,7 +77,7 @@ let html = `<ul>
                   <li><span>Produtos</span></li>
                   <li><span>Contato</span></li>
                 </ul>`;
-html = html.split ('span').join('a');
+html = html.split('span').join('a');
 console.log (html);
 
 // Retorne o último caracter da frase
@@ -85,8 +90,8 @@ const transacoes2 = ['Taxa do Banco', '   TAXA DO PÃO', '  taxa do mercado', 'd
 let taxasTotal = 0;
 
 transacoes2.forEach (item => {
-    item = item.toLocaleLowerCase().trim().slice(0, 4);
+    item = item.toLocaleLowerCase().trim();
     
-    if (item === 'taxa')
+    if (item.slice(0, 4) === 'taxa')
     taxasTotal++
 }); console.log (taxasTotal)
