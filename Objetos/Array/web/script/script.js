@@ -21,8 +21,8 @@ console.log (ultimoValor);
 function initEstudante() {
   const estudantes = ['Marcio', 'Brenda', 'Joana', 'Kleber', 'Julia'];
 
-  estudantes.reverse(); // Reverse the array first
-  estudantes.sort();    // Sort the array (now in reverse)
+  estudantes.reverse(); // Reverter o array primeiro
+  estudantes.sort();    // Ordenar o array (agora em ordem reversa)
 
   function Estudante(nome, idade) {
     this.nome = nome;
@@ -35,15 +35,18 @@ function initEstudante() {
   estudantes.forEach(estudante => {
     if (estudante.includes('Joana')) 
       console.log(`${Joana.nome} é uma pessoa real`);
-    else (
-      console.log ('tste')
-    )
+    else if (estudante.includes('Juliana'))
+      console.log(`${Juliana.nome} não é uma pessoa real`)
+      
+    
+    
   });
 
   console.log(estudantes);
 }
 
 initEstudante();
+
 
 
 
@@ -57,6 +60,16 @@ let html = `<section>
 // Substitua section por ul e div com li,4
 // utilizando split e join
 
+html = html.split ('section').join('ul').split('div').join('li');
+console.log (html);
+
+
 const carros = ['Ford', 'Fiat', 'VW', 'Honda'];
 // Remova o último carro, mas antes de remover
 // salve a array original em outra variável
+const carrosCopia = carros.slice();
+carros.pop();
+console.log (carros)
+console.log (carrosCopia)
+
+
