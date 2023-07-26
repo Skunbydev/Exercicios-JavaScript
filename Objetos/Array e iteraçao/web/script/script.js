@@ -1,6 +1,25 @@
 // Selecione cada curso e retorne uma array
 // com objetos contendo o título, descricao,
 // aulas e horas de cada curso
+const cursos = document.querySelectorAll('.curso');
+const cursosArray = Array.from(cursos);
+
+const objetoCursos = cursosArray.map(curso => {
+const dadosDoCurso = {
+  titulo:  curso.querySelector('H1').innerText,
+  descricao: curso.querySelector('P').innerText,
+  quantidadeAula: curso.querySelector ('.aulas').innerText,
+
+}
+console.log (dadosDoCurso);
+// return {
+  // titulo,
+
+// }
+ })
+
+console.log (cursosArray);
+
 
 
 // Retorne uma lista com os
