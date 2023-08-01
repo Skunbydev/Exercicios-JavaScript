@@ -7,15 +7,10 @@
 
 //Solucao do professor:
 
-
- const paragrafos = document.querySelectorAll('p');
-
- const totalCaracteres = Array.prototype.reduce.call(paragrafos, (acumulador, item) => {
-     return acumulador + item.innerText.length;
- }, 0);
-
-console.log(totalCaracteres);
-
+const seletorParagrafo = document.querySelectorAll('p');
+const somaCaractere = Array.prototype.reduce.call(seletorParagrafo, (acumulador, paragrafo) => {
+    return acumulador + paragrafo.innerText.length;
+}, 0 )
 
 // Crie uma função que retorne novos elementos
 // html, com os seguintes parâmetros
@@ -23,17 +18,21 @@ console.log(totalCaracteres);
 
 function criarElemento (tag, classe, conteudo) {
     const elemento = document.createElement(tag);
-   classe  ? elemento.classList.add(classe) : null;
-   conteudo ? elemento.innerHtml = conteudo : null;
-
+    classe ? elemento.classList.add(classe) : null;
+    conteudo ? elemento.innerHTML = conteudo : null;
     return elemento;
 }
 
-console.log (criarElemento('Li', 'azul', 'Esse é o conteúdo'));
-// Crie uma nova função utilizando a anterior como base
-// essa nova função deverá sempre criar h1 com a
-// classe titulo. Porém o parâmetro conteudo continuará dinâmico
+// exemplo de uso: 
+ console.log (criarElemento('li', 'azul', 'Esse é o conteúdo'));
 
-const h1Titulo = criarElemento.bind(null, 'h1', 'titulo');
-console.log (h1Titulo('Cursos de JavaScript'));
-console.log (cursoJS, cursosHTML);
+ 
+// // Crie uma nova função utilizando a anterior como base
+// // essa nova função deverá sempre criar h1 com a
+// // classe titulo. Porém o parâmetro conteudo continuará dinâmico
+
+// const h1Titulo = criarElemento.bind(null, 'h1', 'titulo');
+// console.log (h1Titulo('Cursos de JavaScript'));
+// console.log (cursoJS, cursosHTML);
+
+
