@@ -44,6 +44,38 @@ const carro = {
     rodas: 4,
     mala: true,
 }
+const motoca = {
+    capacete: true,
+};
+
+Object.defineProperties(motoca, {
+    rodas: {
+        value: 2,
+        configurable: false, 
+        writable: true,
+    }
+});
+motoca.rodas = 4;
+delete motoca.capacete, motoca.rodas; //Se o configurable: false, ele nao exclue o "rodas";
+
 
 Object.assign(moto, funcaoAutomovel);
 Object.assign(carro, funcaoAutomovel);
+console.log (motoca);
+
+const helicoptero = {
+    helice: 2,
+}
+
+Object.defineProperties(helicoptero, {
+    helice: {
+        get() {
+        return this._helice;
+        },
+        set(valor) {
+        this._helice = valor * 4 + ` É o total de hélices`;
+        }
+    }
+})
+helicoptero.helice = 4;
+console.log (helicoptero);
