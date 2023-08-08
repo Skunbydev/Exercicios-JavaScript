@@ -4,9 +4,12 @@ import initScrollSuave from "./modules/scroll-suave.js"
 import initTabNav from "./modules/TabNav.js";
 import initModal from "./modules/modal.js";
 import initToolTip from "./modules/tooltip.js"
+import initDropdownMenu from "./modules/dropdown-menu.js";
+
 initAccordion()
 initAnimacaoScroll()
 initScrollSuave()
 initTabNav()
 initModal()
 initToolTip()
+initDropdownMenu()
