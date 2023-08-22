@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+
+}
+
+
+.container {
+    box-sizing: border-box;
+    max-width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.navegation-background {
+    background: #4F4D5C;
+}
+
+.navegation {
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.navegation-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.navegation a {
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;    
+}
+
+
+.barra-horizontal-centro-metade{
+    width: 50%;
+    height: 1px;
+    background: #fff;
+}
