@@ -1,55 +1,26 @@
-function $$(selectedElements) {
-    const elements = document.querySelectorAll(selectedElements);
-    function hide() {
-        elements.forEach(element =>{
-            element.style.display = "none";
-        })
-        return $$(selectedElements);
-    }
+// Extraia o backgroundColor, color e margin do btn
+const btn = document.querySelector('button');
+const btnStyles = window.getComputedStyle(btn);
 
-    function show() {
-        elements.forEach(element => {
-            element.style.display = "initial";
-        })
-    }
 
-    function on(onEvent, callback) {
-        elements.forEach(element => {
-            element.addEventListener(onEvent, callback)
-        });
-        return $$(selectedElements);
-    }
+console.log (btnStyles.backgroundColor);
+console.log (btnStyles.color);
+console.log (btnStyles.margin); 
+// Troque os valores das variáveis abaixo
+let cursoAtivo = 'JavaScript';
+let cursoInativo = 'HTML';
 
-    function addClass(className) {
-        elements.forEach(element =>{
-            element.classList.add(className)
-        });
-        return $$(selectedElements);
-    }
+[cursoAtivo, cursoInativo] = [cursoInativo, cursoAtivo];
 
-    function removeClass(className) {
-        elements.forEach(element =>{
-            element.classList.remove(className)
-        });
-        return $$(selectedElements);
-    }
 
-    return {
-        elements,
-        hide,
-        show,
-        on,
-        addClass,
-        removeClass
-    }
+
+// Corrija o erro abaixo
+const cachorro = {
+  nome: 'Mel',
+  raca: 'Vira-lata',
+  cor: 'Amarela'
 }
 
-const btns = $$('button');
+const {nome: MelNome, raca: MelRaca, cor: MelCor} = cachorro;
 
-console.log(btns.hide().show());
-
-function handleClick(event){
-    console.log(event.target);
-}
-
-btns.on('click', handleClick);
+console.log (MelNome, MelCor, MelRaca);

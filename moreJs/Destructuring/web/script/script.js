@@ -4,31 +4,53 @@ const carro = {
     portas: 4,
 }
 
-const {marca, ano} = carro;
+const {
+    marca,
+    ano
+} = carro;
 
-console.log(marca, ano);
-/* primeira forma */ 
+
+/* primeira forma */
 
 const cliente = {
     nome: "Luiz Felipe",
     sobrenome: "Santos de lima Alves",
     compras: {
         fisicas: {
-            cadernos: [{nome:'Pokedex', preco: 20}, {nome: 'LilPeep', preco: 30}, ]
+            cadernos: [{
+                nome: 'Pokedex',
+                preco: 20
+            }, {
+                nome: 'LilPeep',
+                preco: 30
+            }, ]
         },
         digitais: {
-            livros: [{nome: 'Como deixar de ser broxa', preco: 15},{nome: 'Pedi demissão, oque faço agora?', preco: 5}],
-            videos: [{nome: 'Como gozar fedido', preco: 5}, {nome: 'Como parar de ser esquisito?', preco: 5}, 
-            {nome:'Sou depressivo.', preco: 9}]
+            livros: [{
+                nome: 'Como deixar de ser broxa',
+                preco: 15
+            }, {
+                nome: 'Pedi demissão, oque faço agora?',
+                preco: 5
+            }],
+            videos: [{
+                    nome: 'Como gozar fedido',
+                    preco: 5
+                }, {
+                    nome: 'Como parar de ser esquisito?',
+                    preco: 5
+                },
+                {
+                    nome: 'Sou depressivo.',
+                    preco: 9
+                }
+            ]
         },
     },
     email: 'luizf.03072003@gmail.com'
 
 
 }
-
-
-
 
 
 const dadosCadastrais = {
@@ -49,46 +71,48 @@ const itensCompras = {
     }
 }
 
-console.log(itensCompras.itensTotais);
 
-function valorCompra(itensCompras) {
-    let valorFisicaCadernos = 0;
-    let valorDigitalLivros = 0;
-    let valorDigitalVideos = 0;
 
-    if (itensCompras.fisicas && itensCompras.fisicas.cadernos) {
-        valorFisicaCadernos = itensCompras.fisicas.cadernos.reduce((soma, item) => soma + item.preco, 0);
-    }
-    if (itensCompras.livros) {
-        valorDigitalLivros = itensCompras.livros.reduce((soma, item) => soma + item.preco, 0);
-    }
-    if (itensCompras.videos) {
-        valorDigitalVideos = itensCompras.videos.reduce((soma, item) => soma + item.preco, 0);
-    }
-    console.log("Total cost of physical cadernos: " + valorFisicaCadernos);
-    console.log("Total cost of digital livros: " + valorDigitalLivros);
-    console.log("Total cost of digital videos: " + valorDigitalVideos);
 
-    const grandTotal = valorFisicaCadernos + valorDigitalLivros + valorDigitalVideos;
-    console.log("Grand Total: " + grandTotal);
+
+const comprasCompletas = {
+    fisicas: itensCompras.fisicas,
+    digitais: itensCompras.digitais,
+    itensComprados: {
+        cadernos: itensCompras.cadernos,
+        livros: itensCompras.livros,
+        videos: itensCompras.videos
+    }
 }
 
-
-
-
-
-function formatacao(dadosCadastrais, itensCompras) {
-    const nomeCompleto = `${dadosCadastrais.primeiroNome} ${dadosCadastrais.sobrenome}`; 
-    const comprasCompletas = `${itensCompras.cadernos}`
-    return `O cliente ${nomeCompleto} comprou ${comprasCompletas}`;
+const valorCompra = {
+    compraDigitalLivro: cliente.compras.digitais.livros.reduce((total, valor) => total + valor.preco, 0),
+    compraDigitalVideo: cliente.compras.digitais.videos.reduce((total, valor) => total + valor.preco, 0),
+    compraFisicaCaderno: cliente.compras.fisicas.cadernos.reduce((total, valor) => total + valor.preco, 0),
+    get valorTotal() {
+        return this.compraDigitalLivro +
+            this.compraDigitalVideo +
+            this.compraFisicaCaderno;
+    }
 }
 
-console.log(formatacao(dadosCadastrais));
-
-
-console.log(dadosCadastrais.email);
-const {nome} = cliente.nome;
+console.log(valorCompra.valorTotal)
 
 
 
 
+function dadosFormatados(dadosCadastrais, comprasCompletas, valorCompra) {
+    const nomeCompleto = `${dadosCadastrais.primeiroNome} ${dadosCadastrais.sobrenome}`;
+    const itensComprados = comprasCompletas.itensComprados;
+    const valorTotal = `R$:${valorCompra.valorTotal}`;
+    return {nomeCompleto, itensComprados, valorTotal};
+}
+
+console.log (dadosFormatados(dadosCadastrais, comprasCompletas, valorCompra));
+
+
+function handleKeyboard({key}) {
+    console.log (key);
+}
+
+document.addEventListener('keyup', handleKeyboard);
