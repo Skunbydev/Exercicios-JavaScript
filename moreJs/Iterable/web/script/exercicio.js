@@ -15,3 +15,9 @@ for(const item of itens) {
 for(const windowKey in window) {
   console.log (`${windowKey}: ${window[windowKey]}`);
 }
+
+function somarNumeros (x, y) {
+  return x + y;
+}
+
+console.log (somarNumeros(5, 10));
